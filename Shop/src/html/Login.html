@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/Login.css">
+  <title>Inicia Sesion</title>
+</head>
+<body>
+
+
+<section>
+  <form action="ServletUsuario?tipo=INICIAR" method="POST" id="form">
+    <div class="from">
+      <h1>Inicia Sesion</h1>
+      <div class="grupo">
+        <input type="text" name="nombreusuario" id="name"><span class="barra"></span>
+        <label for="">Nombre Usuario</label>
+      </div>
+      <div class="grupo">
+        <input type="password" name="contrasena" id="password"><span class="barra"></span>
+        <label for="">Password</label>
+      </div>
+      <div class="grupo">
+        <button type="submit" class="submit" class="br-danger w-100">Ingresar</button>
+        <button class="button"><a class="" href="NuevaCuenta.html">Crear Cuenta</a></button>
+        <button class="button"><a class="" href="GirlShop.html">Cancelar</a></button>
+
+        <!--<a class="button" href="NewLogin.jsp">Nueva Cuenta</a>
+        <a class="button" href="Girl_Shop.jsp">Regresar</a>-->
+      </div>
+    </div>
+  </form>
+</section>
+
+</body>
+</html>

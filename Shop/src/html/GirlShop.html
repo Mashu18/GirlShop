@@ -1,0 +1,681 @@
+<!doctype html>
+<!--<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>-->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Delius+Unicase&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+
+
+    <script src="https://kit.fontawesome.com/608d697877.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/Index.css">
+    <title>GIRL SHOP!</title>
+</head>
+
+<body>
+
+
+
+<nav class="bg-light sticky-top Barra">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-4 text-center ">
+                <img src="../images/logo.png" alt="Logo girl shop">
+            </div>
+            <div class="Laces col-12 col-md-8 text-right d-none d-md-block">
+                <ul class="mb-0">
+                    <li class="d-inline-block p-2">
+                        <i class="fa fa-home" aria-hidden="true"></i>
+                        <a href="Girl_Shop.jsp" class="lead text-secondary text-dark">Inicio</a>
+                    </li>
+                    <li class="d-inline-block p-2">
+                        <i class="fa fa-usd" aria-hidden="true"></i>
+                        <a href="Rebajas.html" class="lead text-secondary text-dark">Rebajas</a>
+                    </li>
+                    <li class="d-inline-block p-2">
+                        <i class="fa fa-sign-in" aria-hidden="true"></i>
+                        <a href="Login.html" class="lead text-secondary text-dark">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<header>
+    <div class="container mw-100">
+        <img class="Banner" id="Banner" src="../images/banners/banner1.webp" alt="">
+        <div class="row h-100">
+            <div class="col-12 h-auto align-self-center text-center titulo py-5">
+                <h1 class="display-1">Girl Shop</h1>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<main>
+
+    <!-- ********************************* MODAL ***************************************** -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-dark text-light">
+                    <h5 class="modal-title" id="staticBackdropLabel"><i class="fa fa-paper-plane" aria-hidden="true"></i> Pide tu producto</h5>
+                </div>
+                <div class="modal-body">
+
+                    <form id="idRegistrar" method="post" action="ServletPedido?tipo=REGISTRARPEDIDO">
+                        <div class="form-group">
+                            <label for="exampleInputPassword1" class="form-label">ID Producto</label>
+                            <input type="text" class="form-control" name="idProducto" id="idProducto">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputPassword1" class="form-label">Nombre Cliente</label>
+                            <input type="text" class="form-control shadow-sm bg-body rounded" name="nombre" id="idNombre">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputPassword1" class="form-label">DNI</label>
+                            <input type="text" class="form-control shadow-sm bg-body rounded" name="DNI" id="iddni">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputPassword1" class="form-label">Cantidad</label>
+                            <input type="text" class="form-control shadow-sm bg-body rounded" name="cantidad" id="idcantidad">
+                        </div>
+
+
+
+
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success">Comprar</button>
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ********************************* FIN MODAL ************************************* -->
+
+    <div class="container">
+        <!--Seccion de tienda-->
+        <div class="row py-5 border-bottom">
+            <div class="col-12 text-center py-5">
+                <h2 class="d-inline-block px-2">Productos</h2>
+            </div>
+
+            <div class="col-12 col-md-3 text-center pb-3 pb-md-0 celu">
+                <img src="../images/Samsung Galaxy A33.jpg" alt="Calcetas" class="img-fluid celular">
+                <h3 class="code_prod">194607312</h3>
+                <h3 class="py-2">Samsung Galaxy A33</h3>
+                <span class="d-block precio lead font-weight-bolder pb-2">S/800<sup>PEN</sup></span>
+                <button type="button" class="btn btn-info btn-new-obj text-darck" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Comprar</button>
+            </div>
+            <div class="col-12 col-md-3 text-center pb-3 pb-md-0 celu">
+                <img src="../images/Table Galaxy.jpg" alt="Crema" class="img-fluid celular">
+                <h3 class="code_prod">496512645</h3>
+                <h3 class="py-2">Table Galaxy S5</h3>
+                <span class="d-block precio lead font-weight-bolder pb-2">S/3000<sup>PEN</sup></span>
+                <div class="Bx-btn-Origin">
+                    <div class="Bx-Org">
+                        <button type="button" class="btn btn-info btn-new-obj text-dark" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 text-center pb-3 pb-md-0 celu">
+                <img src="../images/Xiaomi Redmi 10.jpg" alt="Cera depliadora" class="img-fluid celular">
+                <h3 class="code_prod">645894120</h3>
+                <h3 class="py-2">Xiaomi Redmi 10</h3>
+                <span class="d-block precio lead font-weight-bolder pb-2">S/450<sup>PEN</sup></span>
+                <div class="Bx-btn-Origin">
+                    <div class="Bx-Org">
+                        <button type="button" class="btn btn-info btn-new-obj text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 text-center pb-3 pb-md-0 celu">
+                <img src="../images/Samsumg Galaxy.jpg" alt="Cera depliadora" class="img-fluid celular">
+                <h3 class="code_prod">589443224</h3>
+                <h3 class="py-2">Samsumg Galaxy</h3>
+                <span class="d-block precio lead font-weight-bolder pb-2">S/550<sup>PEN</sup></span>
+                <div class="Bx-btn-Origin">
+                    <div class="Bx-Org">
+                        <button type="button" class="btn btn-info btn-new-obj text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Comprar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row py-5 border-bottom">
+            <div class="col-12 col-md-3 text-center pb-3 pb-md-0 celu">
+                <img src="../images/Motorola E7.jpg" alt="Calcetas" class="img-fluid celular">
+                <h3 class="code_prod">854752154</h3>
+                <h3 class="py-2">Motorola E7</h3>
+                <span class="d-block precio lead font-weight-bolder pb-2">S/291<sup>PEN</sup></span>
+                <div class="Bx-btn-Origin">
+                    <div class="Bx-Org">
+                        <button type="button" class="btn btn-info btn-new-obj text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 text-center pb-3 pb-md-0 celu">
+                <img src="../images/Samsumg Galaxy_1.jpg" alt="Crema" class="img-fluid celular">
+                <h3 class="code_prod">406743387</h3>
+                <h3 class="py-2">Samsumg Galaxy</h3>
+                <span class="d-block precio lead font-weight-bolder pb-2">S/650<sup>PEN</sup></span>
+                <div class="Bx-btn-Origin">
+                    <div class="Bx-Org">
+                        <button type="button" class="btn btn-info btn-new-obj text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 text-center pb-3 pb-md-0 celu">
+                <img src="../images/prod_7.jpg" alt="Cera depliadora" class="img-fluid celular">
+                <h3 class="code_prod">658623311</h3>
+                <h3 class="py-2">Huawei Y6P</h3>
+                <span class="d-block precio lead font-weight-bolder pb-2">S/210<sup>PEN</sup></span>
+                <div class="Bx-btn-Origin">
+                    <div class="Bx-Org">
+                        <button type="button" class="btn btn-info btn-new-obj text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 text-center pb-3 pb-md-0 celu">
+                <img src="../images/prod_8.jpg" alt="Cera depliadora" class="img-fluid celular">
+                <h3 class="code_prod">354770103</h3>
+                <h3 class="py-2">Samsumg GalaxyZ FLIP 3</h3>
+                <span class="d-block precio lead font-weight-bolder pb-2">S/680<sup>PEN</sup></span>
+                <div class="Bx-btn-Origin">
+                    <div class="Bx-Org">
+                        <button type="button" class="btn btn-info btn-new-obj text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Comprar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row py-5 border-bottom">
+            <div class="col-12 col-md-3 text-center pb-3 pb-md-0 celu">
+                <img src="../images/prod_9.jpg" alt="Calcetas" class="img-fluid celular">
+                <h3 class="code_prod">449642021</h3>
+                <h3 class="py-2">Apple Iphone 11</h3>
+                <span class="d-block precio lead font-weight-bolder pb-2">S/760<sup>PEN</sup></span>
+                <div class="Bx-btn-Origin">
+                    <div class="Bx-Org">
+                        <button type="button" class="btn btn-info btn-new-obj text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 text-center pb-3 pb-md-0 celu">
+                <img src="../images/prod_10.jpg" alt="Crema" class="img-fluid celular">
+                <h3 class="code_prod">679606522</h3>
+                <h3 class="py-2">Samsumg Galaxy S20 FE</h3>
+                <span class="d-block precio lead font-weight-bolder pb-2">S/450<sup>PEN</sup></span>
+                <div class="Bx-btn-Origin">
+                    <div class="Bx-Org">
+                        <button type="button" class="btn btn-info btn-new-obj text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 text-center pb-3 pb-md-0 celu">
+                <img src="../images/prod_11.jpg" alt="Cera depliadora" class="img-fluid celular">
+                <h3 class="code_prod">955220129</h3>
+                <h3 class="py-2">Iphone 12 PRO</h3>
+                <span class="d-block precio lead font-weight-bolder pb-2">S/800<sup>PEN</sup></span>
+                <div class="Bx-btn-Origin">
+                    <div class="Bx-Org">
+                        <button type="button" class="btn btn-info btn-new-obj text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 text-center pb-3 pb-md-0 celu">
+                <img src="../images/Samsumg Galaxy A32.jpg" alt="Cera depliadora" class="img-fluid celular">
+                <h3 class="code_prod">339018930</h3>
+                <h3 class="py-2">Samsumg Galaxy A32</h3>
+                <span class="d-block precio lead font-weight-bolder pb-2">S/650<sup>PEN</sup></span>
+                <div class="Bx-btn-Origin">
+                    <div class="Bx-Org">
+                        <button type="button" class="btn btn-info btn-new-obj text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Comprar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row py-5 border-bottom">
+
+            <div class="col-12 col-md-3 text-center pb-3 pb-md-0 celu">
+                <img src="../images/Iphone 12.jpg" alt="Calcetas" class="img-fluid celular">
+                <h3 class="code_prod">830855281</h3>
+                <h3 class="py-2">Iphone 12</h3>
+                <span class="d-block precio lead font-weight-bolder pb-2">S/1000<sup>PEN</sup></span>
+                <div class="Bx-btn-Origin">
+                    <div class="Bx-Org">
+                        <button type="button" class="btn btn-info btn-new-obj text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 text-center pb-3 pb-md-0 celu">
+                <img src="../images/Xiaomi Redmi Note 10S.jpg" alt="Crema" class="img-fluid celular">
+                <h3 class="code_prod">852106773</h3>
+                <h3 class="py-2">Xiaomi Redmi Note 10S</h3>
+                <span class="d-block precio lead font-weight-bolder pb-2">S/700<sup>PEN</sup></span>
+                <div class="Bx-btn-Origin">
+                    <div class="Bx-Org">
+                        <button type="button" class="btn btn-info btn-new-obj text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 text-center pb-3 pb-md-0 celu">
+                <img src="../images/HUAWEI nova Dual.jpg" alt="Cera depliadora" class="img-fluid celular">
+                <h3 class="code_prod">512160994</h3>
+                <h3 class="py-2">HUAWEI nova Dual</h3>
+                <span class="d-block precio lead font-weight-bolder pb-2">S/1.699<sup>PEN</sup></span>
+                <div class="Bx-btn-Origin">
+                    <div class="Bx-Org">
+                        <button type="button" class="btn btn-info btn-new-obj text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 text-center pb-3 pb-md-0 celu">
+                <img src="../images/prod_16.jpg" alt="Cera depliadora" class="img-fluid celular">
+                <h3 class="code_prod">121088114</h3>
+                <h3 class="py-2">Zte Blade V30 Vita</h3>
+                <span class="d-block precio lead font-weight-bolder pb-2">S/439<sup>PEN</sup></span>
+                <div class="Bx-btn-Origin">
+                    <div class="Bx-Org">
+                        <button type="button" class="btn btn-info btn-new-obj text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Comprar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row py-5 border-bottom">
+            <div class="col-12 col-md-3 text-center pb-3 pb-md-0 MB_TV">
+                <img src="../images/MB Asus Prime B560M-A.jpg" alt="Calcetas" class="img-fluid MB_AA">
+                <h3 class="code_prod">943911994</h3>
+                <h3 class="py-2">MB Asus Prime B560M-A</h3>
+                <span class="d-block precio lead font-weight-bolder pb-2">S/800<sup>PEN</sup></span>
+                <div class="Bx-btn-Origin">
+                    <div class="Bx-Org">
+                        <button type="button" class="btn btn-info btn-new-obj text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 text-center pb-3 pb-md-0 MB_TV">
+                <img src="../images/MB Asus Gaming B450-Plus II AM4.jpg" alt="Crema" class="img-fluid MB_AA">
+                <h3 class="code_prod">113363268</h3>
+                <h3 class="py-2">MB Asus Gaming B450-Plus II AM4</h3>
+                <span class="d-block precio lead font-weight-bolder pb-2">S/650<sup>PEN</sup></span>
+                <div class="Bx-btn-Origin">
+                    <div class="Bx-Org">
+                        <button type="button" class="btn btn-info btn-new-obj text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 text-center pb-3 pb-md-0 MB_TV">
+                <img src="../images/MB Asus Prime X570-P AM4.jpg" alt="Cera depliadora" class="img-fluid MB_AA">
+                <h3 class="code_prod">424441230</h3>
+                <h3 class="py-2">MB Asus Prime X570-P AM4</h3>
+                <span class="d-block precio lead font-weight-bolder pb-2">S/601<sup>PEN</sup></span>
+                <div class="Bx-btn-Origin">
+                    <div class="Bx-Org">
+                        <button type="button" class="btn btn-info btn-new-obj text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 text-center pb-3 pb-md-0 MB_TV">
+                <img src="../images/Procesador Intel 10900X.jpg" alt="Cera depliadora" class="img-fluid MB_AA">
+                <h3 class="code_prod">147399791</h3>
+                <h3 class="py-2">Procesador IntelÂ® Coreâ¢ i9-10900X</h3>
+                <span class="d-block precio lead font-weight-bolder pb-2">S/780<sup>PEN</sup></span>
+                <div class="Bx-btn-Origin">
+                    <div class="Bx-Org">
+                        <button type="button" class="btn btn-info btn-new-obj text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Comprar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row py-5 border-bottom">
+            <div class="col-12 col-md-3 text-center pb-3 pb-md-0 MB_TV">
+                <img src="../images/Extreme Edition.jpg" alt="Calcetas" class="img-fluid MB_AA">
+                <h3 class="code_prod">540913297</h3>
+                <h3 class="py-2">Procesador IntelÂ® Coreâ¢ i9-10980X</h3>
+                <span class="d-block precio lead font-weight-bolder pb-2">S/900<sup>PEN</sup></span>
+                <div class="Bx-btn-Origin">
+                    <div class="Bx-Org">
+                        <button type="button" class="btn btn-info btn-new-obj text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 text-center pb-3 pb-md-0 MB_TV">
+                <img src="../images/intel I9 X.jpg" alt="Crema" class="img-fluid MB_AA">
+                <h3 class="code_prod">326255693</h3>
+                <h3 class="py-2">Procesador IntelÂ® Coreâ¢ i9-10940X</h3>
+                <span class="d-block precio lead font-weight-bolder pb-2">S/759<sup>PEN</sup></span>
+                <div class="Bx-btn-Origin">
+                    <div class="Bx-Org">
+                        <button type="button" class="btn btn-info btn-new-obj text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 text-center pb-3 pb-md-0 MB_TV">
+                <img src="../images/Tiksounds Auriculares Bluetooth.jpg" alt="Cera depliadora" class="img-fluid MB_AA">
+                <h3 class="code_prod">540737009</h3>
+                <h3 class="py-2">Tiksounds Auriculares Bluetooth</h3>
+                <span class="d-block precio lead font-weight-bolder pb-2">S/46<sup>PEN</sup></span>
+                <div class="Bx-btn-Origin">
+                    <div class="Bx-Org">
+                        <button type="button" class="btn btn-info btn-new-obj text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 text-center pb-3 pb-md-0 MB_TV">
+                <img src="../images/Auriculares Bluetooth.jpg" alt="Cera depliadora" class="img-fluid MB_AA">
+                <h3 class="code_prod">980558221</h3>
+                <h3 class="py-2">Auriculares inalÃ¡mbricos Bluetooth</h3>
+                <span class="d-block precio lead font-weight-bolder pb-2">S/76<sup>PEN</sup></span>
+                <div class="Bx-btn-Origin">
+                    <div class="Bx-Org">
+                        <button type="button" class="btn btn-info btn-new-obj text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Comprar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row py-5 border-bottom">
+            <div class="col-12 col-md-3 text-center pb-3 pb-md-0 MB_TV">
+                <img src="../images/descarga_asa.jpg" alt="Audifonos Bluetooth Skullcandy" class="img-fluid MB_AA">
+                <h3 class="code_prod">495683678</h3>
+                <h3 class="py-2">Audifonos Bluetooth Skullcandy</h3>
+                <span class="d-block precio lead font-weight-bolder pb-2">S/76<sup>PEN</sup></span>
+                <div class="Bx-btn-Origin">
+                    <div class="Bx-Org">
+                        <button type="button" class="btn btn-info btn-new-obj text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 text-center pb-3 pb-md-0 MB_TV">
+                <img src="../images/descarga_as_ass.jpg" alt="Crema" class="img-fluid MB_AA">
+                <h3 class="code_prod">318968346</h3>
+                <h3 class="py-2">Audifonos con Noise Cancelling Sony</h3>
+                <span class="d-block precio lead font-weight-bolder pb-2">S/100<sup>PEN</sup></span>
+                <div class="Bx-btn-Origin">
+                    <div class="Bx-Org">
+                        <button type="button" class="btn btn-info btn-new-obj text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 text-center pb-3 pb-md-0 MB_TV">
+                <img src="../images/Jabra Auriculares Elite 75t.webp" alt="Cera depliadora" class="img-fluid MB_AA">
+                <h3 class="code_prod">659842113</h3>
+                <h3 class="py-2">Jabra Auriculares Elite 75t</h3>
+                <span class="d-block precio lead font-weight-bolder pb-2">S/150<sup>PEN</sup></span>
+                <div class="Bx-btn-Origin">
+                    <div class="Bx-Org">
+                        <button type="button" class="btn btn-info btn-new-obj text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 text-center pb-3 pb-md-0 MB_TV">
+                <img src="../images/Tiksounds Auriculares Bluetooth (2).jpg" alt="Cera depliadora" class="img-fluid MB_AA">
+                <h3 class="code_prod">316421514</h3>
+                <h3 class="py-2">Tiksounds Auriculares Bluetooth</h3>
+                <span class="d-block precio lead font-weight-bolder pb-2">S/200<sup>PEN</sup></span>
+                <div class="Bx-btn-Origin">
+                    <div class="Bx-Org">
+                        <button type="button" class="btn btn-info btn-new-obj text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Comprar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row py-5 border-bottom">
+            <div class="col-12 col-md-3 text-center pb-3 pb-md-0 MB_TV">
+                <img src="../images/Auriculares Bluetooth Lenovo LP6.jpg" alt="Calcetas" class="img-fluid MB_AA">
+                <h3 class="code_prod">752651984</h3>
+                <h3 class="py-2">Auriculares Bluetooth Lenovo LP6</h3>
+                <span class="d-block precio lead font-weight-bolder pb-2">S/100<sup>PEN</sup></span>
+                <div class="Bx-btn-Origin">
+                    <div class="Bx-Org">
+                        <button type="button" class="btn btn-info btn-new-obj text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 text-center pb-3 pb-md-0 MB_TV">
+                <img src="../images/product.jpg" alt="Crema" class="img-fluid MB_AA">
+                <h3 class="code_prod">621412564</h3>
+                <h3 class="py-2">Audifonos Bluetooth PowerLocus P2</h3>
+                <span class="d-block precio lead font-weight-bolder pb-2">S/85<sup>PEN</sup></span>
+                <div class="Bx-btn-Origin">
+                    <div class="Bx-Org">
+                        <button type="button" class="btn btn-info btn-new-obj text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 text-center pb-3 pb-md-0 MB_TV">
+                <img src="../images/Audifonos Bluetooth 5.0 Pure Bass Sound.jpg" alt="Cera depliadora" class="img-fluid MB_AA">
+                <h3 class="code_prod">905845337</h3>
+                <h3 class="py-2">Audifonos 5.0 Pure Bass Sound</h3>
+                <span class="d-block precio lead font-weight-bolder pb-2">S/82<sup>PEN</sup></span>
+                <div class="Bx-btn-Origin">
+                    <div class="Bx-Org">
+                        <button type="button" class="btn btn-info btn-new-obj text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 text-center pb-3 pb-md-0 MB_TV">
+                <img src="../images/descarga.jpg" alt="Cera depliadora" class="img-fluid MB_AA">
+                <h3 class="code_prod">546885366</h3>
+                <h3 class="py-2">Audifonos con Noise Cancelling Sony</h3>
+                <span class="d-block precio lead font-weight-bolder pb-2">S/135<sup>PEN</sup></span>
+                <div class="Bx-btn-Origin">
+                    <div class="Bx-Org">
+                        <button type="button" class="btn btn-info btn-new-obj text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Comprar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row py-5 border-bottom">
+            <div class="col-12 col-md-3 text-center pb-3 pb-md-0 MB_TV">
+                <img src="../images/Auriculares Lenovo Bluetooth.jpg" alt="Calcetas" class="img-fluid MB_AA">
+                <h3 class="code_prod">684665453</h3>
+                <h3 class="py-2">Auriculares Lenovo Bluetooth</h3>
+                <span class="d-block precio lead font-weight-bolder pb-2">S/76<sup>PEN</sup></span>
+                <div class="Bx-btn-Origin">
+                    <div class="Bx-Org">
+                        <button type="button" class="btn btn-info btn-new-obj text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 text-center pb-3 pb-md-0 MB_TV">
+                <img src="../images/ear6.png" alt="Crema" class="img-fluid MB_AA">
+                <h3 class="code_prod">567354734</h3>
+                <h3 class="py-2">Audifono Bluetooth Xiaomi Earbuds</h3>
+                <span class="d-block precio lead font-weight-bolder pb-2">S/79<sup>PEN</sup></span>
+                <div class="Bx-btn-Origin">
+                    <div class="Bx-Org">
+                        <button type="button" class="btn btn-info btn-new-obj text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 text-center pb-3 pb-md-0 MB_TV">
+                <img src="../images/Combo_Lenovo.jpg" alt="Cera depliadora" class="img-fluid MB_AA">
+                <h3 class="code_prod">658411332</h3>
+                <h3 class="py-2">Combo 3 Pcs Lenovo XT90 Tws Audifonos</h3>
+                <span class="d-block precio lead font-weight-bolder pb-2">S/220<sup>PEN</sup></span>
+                <div class="Bx-btn-Origin">
+                    <div class="Bx-Org">
+                        <button type="button" class="btn btn-info btn-new-obj text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 text-center pb-3 pb-md-0 MB_TV">
+                <img src="../images/Audifonos Sony Bluetooth Noice Cancelling.webp" alt="Cera depliadora" class="img-fluid MB_AA">
+                <h3 class="code_prod">173568744</h3>
+                <h3 class="py-2">Audifonos Sony Bluetooth Noice Cancelling</h3>
+                <span class="d-block precio lead font-weight-bolder pb-2">S/95<sup>PEN</sup></span>
+                <div class="Bx-btn-Origin">
+                    <div class="Bx-Org">
+                        <button type="button" class="btn btn-info btn-new-obj text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Comprar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row py-5 border-bottom">
+            <div class="col-12 col-md-3 text-center pb-3 pb-md-0 MB_TV">
+                <img src="../images/TV Google.jpg" alt="Calcetas" class="img-fluid TV">
+                <h3 class="code_prod">910198778</h3>
+                <h3 class="py-2">TV 65" 4K UHD GOOGLE TV KD 65X80J</h3>
+                <span class="d-block precio lead font-weight-bolder pb-2">S/651<sup>PEN</sup></span>
+                <div class="Bx-btn-Origin">
+                    <div class="Bx-Org">
+                        <button type="button" class="btn btn-info btn-new-obj text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 text-center pb-3 pb-md-0 MB_TV">
+                <img src="../images/TV nanocell 65 nano75 4K THINKQ AI.webp" alt="Crema" class="img-fluid TV">
+                <h3 class="code_prod">189768867</h3>
+                <h3 class="py-2">TV nanocell 65 nano75 4K THINKQ AI</h3>
+                <span class="d-block precio lead font-weight-bolder pb-2">S/730<sup>PEN</sup></span>
+                <div class="Bx-btn-Origin">
+                    <div class="Bx-Org">
+                        <button type="button" class="btn btn-info btn-new-obj text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 text-center pb-3 pb-md-0 MB_TV">
+                <img src="../images/TV Oled 65 4K Smart Thing AI.jpg" class="img-fluid TV">
+                <h3 class="code_prod">852118731</h3>
+                <h3 class="py-2">TV Oled 65" 4K Smart Thing AI</h3>
+                <span class="d-block precio lead font-weight-bolder pb-2">S/710<sup>PEN</sup></span>
+                <div class="Bx-btn-Origin">
+                    <div class="Bx-Org">
+                        <button type="button" class="btn btn-info btn-new-obj text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 text-center pb-3 pb-md-0 MB_TV">
+                <img src="../images/TV Sony 85 4K Android Smart.webp" class="img-fluid TV">
+                <h3 class="code_prod">673534143</h3>
+                <h3 class="py-2">TV Sony 85" 4K Android Smart</h3>
+                <span class="d-block precio lead font-weight-bolder pb-2">S/850<sup>PEN</sup></span>
+                <div class="Bx-btn-Origin">
+                    <div class="Bx-Org">
+                        <button type="button" class="btn btn-info btn-new-obj text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Comprar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+        <!--Termina la seccion de tienda-->
+        <!--Seccion de rebajas-->
+        <div class="row py-5">
+            <div class="col-12 col-md-6 pb-4 pb-md-0">
+                <img src="../images/rebajas1.jpg" alt="Rebajas 60%" class="img-fluid">
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="row">
+                    <div class="col-12">
+                        <img src="../images/rebajas2.jpg" alt="Rebajas Carrito" class="img-fluid">
+                    </div>
+                    <div class="col-12 mt-5">
+                        <img src="../images/rebajas3.jpg" alt="Chica Comprando" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="bg-secondary">
+    <div class="container">
+        <div class="row py-3">
+            <div class="col-12 text-center text-white">
+                <p class="mb-0">Girl shop todos los derechos reservados.</p>
+            </div>
+        </div>
+    </div>
+
+</footer>
+<div class="position-fixed btnwha">
+    <a href="https://api.whatsapp.com/send?phone=51994237455&text=hola,%20quÃ©%20tal?"><img src="img/whatsapp.png"
+                                                                                            alt="Boton whatasapp" class="img-fluid"></a>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+
+<script src="../js/index.js"></script>
+
+
+<!-- PEDIDO USUARIO -->
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+
+
+<style>
+    .Barra .container .row .Laces ul li:hover{
+        background: #D0D3D4 !important;
+    }
+
+    .Barra .container .row .Laces ul li:hover > a{
+        color: #fff;
+    }
+
+
+    .btn-info{
+        padding: 1.3em 3em;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 2.5px;
+        font-weight: 500;
+        color: #000;
+        background-color: #fff;
+        border: 2px solid rgba(0, 0, 0, 0.1);
+        border-radius: 45px;
+        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease 0s;
+        cursor: pointer;
+        outline: none;
+        color: #000 !important;
+    }
+
+    .btn-info:hover{
+        background-color: #23c483 !important;
+        box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4) !important;
+        color: #fff !important;
+        transform: translateY(-7px) !important;
+    }
+    .btn-info{
+        transform: translateY(-1px) ;
+    }
+</style>
+
+
+
+
+
+</body>
+</html>

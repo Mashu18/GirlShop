@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/NuevaCuenta.css">
+  <title>Crear Cuenta</title>
+</head>
+<body>
+
+<section>
+  <form action="ServletUsuario?tipo=REGISTRAR" method="POST" id="form">
+    <div class="from">
+      <h1>Nueva Cuenta</h1>
+      <div class="grupo">
+        <input type="text" name="usuario" id="usuario" required><span class="barra"></span>
+        <label for="">Usuario</label>
+      </div>
+      <div class="grupo">
+        <input type="text" name="nombre" id="nombre" required><span class="barra"></span>
+        <label for="">Nombre completo</label>
+      </div>
+      <div class="grupo">
+        <input type="text" name="apellido" id="apellido" required><span class="barra"></span>
+        <label for="">Apellido completo</label>
+      </div>
+      <div class="grupo">
+        <input type="text" name="dni" id="dni" required><span class="barra"></span>
+        <label for="">Dni</label>
+      </div>
+      <div class="grupo">
+        <input type="text" name="edad" id="edad" required><span class="barra"></span>
+        <label for="">Edad</label>
+      </div>
+      <div class="grupo">
+        <!-- <input type="text" name="sexo" id="sexo" required><span class="barra"></span>
+        <label for="">Sexo</label> -->
+        <select class="barra selector" name="sexo" id="idSexo">
+          <option value="" selected>[Seleccione Sexo]</option>
+          <option value="Masculino">Masculino</option>
+          <option value="Femenino">Femenino</option>
+        </select>
+      </div>
+
+      <div class="grupo Bx-selector">
+        <select class="barra selector" name="pais" id="idPais">
+          <option value="" selected>[Seleccione Pais]</option>
+          <option value="Peru">Peru</option>
+          <option value="Argentina">Argentina</option>
+          <option value="Chile">Chile</option>
+          <option value="Brasil">Brasil</option>
+          <option value="Ecuador">Ecuador</option>
+          <option value="Bolivia">Bolivia</option>
+          <option value="Colombia">Colombia</option>
+          <option value="China">China</option>
+          <option value="EE.UU">EE.UU</option>
+          <option value="Rusia">Rusia</option>
+          <option value="Japon">Japon</option>
+          <option value="Corea Norte">Corea Norte</option>
+        </select>
+      </div>
+      <div class="grupo">
+        <input type="password" name="contrasena" id="password" required><span class="barra"></span>
+        <label for="">Password</label>
+      </div>
+      <div class="grupo">
+        <button type="submit" class="submit">Crear Cuenta</button>
+        <button><a class="" href="Login.html">Regresar</a></button>
+      </div>
+    </div>
+  </form>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,244 @@
+drop database if exists DB_PROYECTO_2022;
+create database DB_PROYECTO_2022;
+use DB_PROYECTO_2022;
+
+
+
+DROP TABLE IF EXISTS `PAIS`;
+CREATE TABLE `PAIS` (
+`ID_PAIS` int(5) NOT NULL, 
+`PAIS_NOM` varchar(20) NOT NULL,
+  PRIMARY KEY (`PAIS_NOM`) 
+);
+insert into PAIS values (32658,'Peru');
+insert into PAIS values (10057,'Chile');
+insert into PAIS values (64852,'Argentina');
+insert into PAIS values (30997,'Bolivia');
+insert into PAIS values (94681,'Paraguay');
+insert into PAIS values (15487,'Brasil');
+insert into PAIS values (64086,'Colombia');
+insert into PAIS values (86495,'Venezuela');
+insert into PAIS values (38683,'Mexico');
+insert into PAIS values (32164,'EE.UU');
+insert into PAIS values (19486,'Rusia');
+insert into PAIS values (76498,'Canada');
+insert into PAIS values (95176,'España');
+insert into PAIS values (91963,'China');
+insert into PAIS values (13625,'Japon');
+insert into PAIS values (91628,'India');
+insert into PAIS values (31054,'Inglaterra');
+insert into PAIS values (31508,'Belgica');
+insert into PAIS values (90049,'Alemania');
+insert into PAIS values (64815,'Grecia');
+
+
+DROP TABLE IF EXISTS `USUARIO`;
+CREATE TABLE `USUARIO` (
+ID_USUARIO INT AUTO_INCREMENT NOT NULL,
+NOMBRE_USUARIO VARCHAR(50) NOT NULL,
+NOMBRE_COMP VARCHAR(50) NOT NULL,
+APELLIDO_COMP VARCHAR(50) NOT NULL,
+DNI_USU INT(8) NOT NULL,
+EDAD_USU INT NOT NULL,
+SEXO_USU VARCHAR(9) NOT NULL,
+PAIS_NOM VARCHAR(20) NOT NULL,
+CONTRASENA VARCHAR(70) NOT NULL,
+PRIMARY KEY (`ID_USUARIO`),
+FOREIGN KEY (PAIS_NOM) REFERENCES PAIS(PAIS_NOM)
+);
+
+alter table USUARIO add constraint DNI_USU unique (DNI_USU);
+alter table USUARIO add constraint SEXO_USU check(SEXO_USU in ('Masculino','Femenino'));
+
+insert into USUARIO values(null,'lucas','Muricio','Carrasco',45885627,32,'Masculino','Peru','lucas');
+insert into USUARIO values(null,'juan','Cesar','Ceballos',65821135,29,'Masculino','Peru','juan');
+insert into USUARIO values(null,'carmen','Lisbet','Poma',32661257,28,'Femenino','Chile','carmen');
+
+
+
+
+
+
+DROP TABLE IF EXISTS `PRODUCTO`;
+CREATE TABLE PRODUCTO(
+COD_ORDEN int auto_increment,
+ID_PRODUCTO int(9) not null unique,
+NOMBRE VARCHAR(120) NOT NULL,
+PRECIO SMALLINT NOT NULL,
+STOCK INT NOT NULL,
+DESCRIPCION VARCHAR(2000) NULL,
+primary key (`COD_ORDEN`)
+);
+
+
+INSERT INTO `PRODUCTO` VALUES (null,194607312,'Samsung Galaxy A33',800,95,'6.5 84mpx 128 Menoria');
+INSERT INTO `PRODUCTO` VALUES (null,496512645,'Table Galaxy S5',3000.00,85,'Table Galaxy S5 Edge');
+INSERT INTO `PRODUCTO` VALUES (null,645894120,'Xiaomi Redmi 10',449.50,80,'128GB - 50MP - Negro');
+INSERT INTO `PRODUCTO` VALUES (null,589443224,'Samsumg Galaxy',550.00,85,'64GB - 48MP - 5MP');
+INSERT INTO `PRODUCTO` VALUES (null,854752154,'Motorola E7',290.90,60,'13MP - 2MP - 4500mAh');
+INSERT INTO `PRODUCTO` VALUES (null,406743387,'Samsumg Galaxy',650.00,60,'32MP - 4500mAh - 6GB');
+INSERT INTO `PRODUCTO` VALUES (null,658623311,'Huawei Y6P',210.00,40,'64GB - 4000mAh - 3GB');
+INSERT INTO `PRODUCTO` VALUES (null,354770103,'Samsumg GalaxyZ FLIP 3',680.00,60,'128GB - 3300mAh');
+INSERT INTO `PRODUCTO` VALUES (null,449642021,'Apple Iphone 11',760.00,55,'64GB - 12MP');
+INSERT INTO `PRODUCTO` VALUES (null,679606522,'Samsumg Galaxy S20 FE',450.00,70,'6.5\" 128GB - 12MP Azul');
+INSERT INTO `PRODUCTO` VALUES (null,955220129,'Iphone 12 PRO',800.00,40,'6.1\" 128GB - 2815mAh');
+INSERT INTO `PRODUCTO` VALUES (null,339018930,'Samsumg Galaxy A32',649.90,80,'6.4\" 128GB - 64MP');
+INSERT INTO `PRODUCTO` VALUES (null,830855281,'Iphone 12',999.90,40,'6.1\" 128GB - 12MP - 2815mAh');
+INSERT INTO `PRODUCTO` VALUES (null,852106773,'Xiaomi Redmi Note 10S',700.00,60,'6.43\" 128GB - 64MP');
+INSERT INTO `PRODUCTO` VALUES (null,512160994,'HUAWEI nova Dual',1699,50,'7.77\" 128GB - 50MP');
+
+INSERT INTO `PRODUCTO` VALUES (null,121088114,'Zte Blade V30 Vita',439.00,80,'8.82\" 64GB - 48MP - GRIS');
+
+INSERT INTO `PRODUCTO` VALUES (null,943911994,'MB Asus Prime B560M-A',800.00,60,'Asus - 128GB - Micro ATX - 24.4cm x 23.4cm');
+INSERT INTO `PRODUCTO` VALUES (null,113363268,'MB Asus Gaming B450-Plus II AM4',649.50,30,'Asus - Gaming B450-Plus II - ATX');
+INSERT INTO `PRODUCTO` VALUES (null,424441230,'MB Asus Prime  X570-P AM4',600.50,30,'ASUS - 90MB11N0-M0EAY0 - ATX');
+INSERT INTO `PRODUCTO` VALUES (null,147399791,'Procesador Intel® Core™ i9-10900X',780.00,30,'serie X caché de 19,25 MB y 3,70 GHz');
+INSERT INTO `PRODUCTO` VALUES (null,540913297,'Procesador Intel® Core™ i9-10980X Extreme Edition',899.90,35,'caché de 24,75 MB y 3,00 GHz');
+INSERT INTO `PRODUCTO` VALUES (null,326255693,'Procesador Intel® Core™ i9-10940X serie X',759.00,15,'caché de 19,25 MB y 3,30 GHz');
+INSERT INTO `PRODUCTO` VALUES (null,540737009,'Tiksounds Auriculares Bluetooth',45.50,80,'Intraurales inalámbricos con pantalla digital');
+INSERT INTO `PRODUCTO` VALUES (null,980558221,'Auriculares inalámbricos Bluetooth',75.90,80,'Negro - Peso 0.135Kg');
+
+INSERT INTO `PRODUCTO` VALUES (null,495683678,'Audífonos Bluetooth Skullcandy UPROAR Wireless',75.90,60,'Color: Negro - Material: Plástico de Alta Durabilida');
+
+INSERT INTO `PRODUCTO` VALUES (null,318968346,'Audífonos con Noise Cancelling y Bluetooth Sony',99.90,60,'Negro - Peso 0.255Kg - Material Sintético');
+INSERT INTO `PRODUCTO` VALUES (null,659842113,'Jabra Auriculares Elite 75t',150,50,'Jabra - Funda de carga, titanio negro');
+INSERT INTO `PRODUCTO` VALUES (null,316421514,'Tiksounds Auriculares Bluetooth',200,40,'Tiksounds - Intraurales inalámbricos con pantalla digital');
+INSERT INTO `PRODUCTO` VALUES (null,752651984,'Auriculares Bluetooth Lenovo LP6',99.90,120,'Negro - Peso 0.135Kg');
+
+INSERT INTO `PRODUCTO` VALUES (null,621412564,'Audífonos Bluetooth PowerLocus P2',85.00,40,'Batería de larga duración 15 Hr.');
+INSERT INTO `PRODUCTO` VALUES (null,905845337,'Audifonos Bluetooth 5.0 Pure Bass Sound',82.00,50,'Material Plastico de alta resistencia');
+INSERT INTO `PRODUCTO` VALUES (null,546885366,'Audífonos con Noise Cancelling y Bluetooth Sony',135.00,50,'Negro - Peso 0.255Kg - Material Sintético');
+INSERT INTO `PRODUCTO` VALUES (null,684665453,'Auriculares Lenovo Bluetooth',75.50,50,'Negro - Modelo LP1 - SKU');
+INSERT INTO `PRODUCTO` VALUES (null,567354734,'Audífono Bluetooth Xiaomi Earbuds Basic',78.50,60,'País de Origen: China - Color Negro');
+INSERT INTO `PRODUCTO` VALUES (null,658411332,'Combo 3 Pcs Lenovo XT90 Tws Audífonos Inalámbricos Bluetooth',220,15,'Modelo XT90 - Color Negro');
+INSERT INTO `PRODUCTO` VALUES (null,173568744,'Audifonos Sony Bluetooth Noice Cancelling',95.00,50,'Color NEGRO - Material ABS y METAL');
+
+INSERT INTO `PRODUCTO` VALUES (null,910198778,'TV 65\" 4K UHD GOOGLE TV KD 65X80J',650.90,65,'Sony - 65 pulgadas - HDR Processor X1™');
+INSERT INTO `PRODUCTO` VALUES (null,189768867,'TV nanocell 65 nano75 4K THINKQ AI',730.00,50,'LG - 65 pulgadas - Procesador Inteligente α5');
+INSERT INTO `PRODUCTO` VALUES (null,852118731,'TV Oled 65\" 4K Smart Thing AI',709.90,45,'LG - 65 pulgadas - 3 USB, 4 HDMI');
+INSERT INTO `PRODUCTO` VALUES (null,673534143,'TV Sony 85\" 4K Android Smart',850.00,70,'85 pulgadas - LCD LED - 4K HDR Processor X1™');
+INSERT INTO `PRODUCTO` VALUES (null,571091200,'TV 77\" OLED 4K Google TV 77A80J',900.90,40,'77 pulgadas - Cognitive Processor XR');
+
+
+/* OFERTA */
+INSERT INTO `PRODUCTO` VALUES (null,965832001,'Ryzen 5 Ultimos 2022 Combos Completos Full Rendmiento ',2760,20,'Kit Gamer Cybertel 3 en 1 Teclado Xtreme Semi Mecánico + Mouse Sniper RGB + Pad GAMER GRANDE');
+INSERT INTO `PRODUCTO` VALUES (null,665588201,'Ryzen 5 Ultimos 2022 Combos Completos Full Rendmiento',2760,30,'AMD RYZEN 5 - 5600 3.6 Ghz, Ryzen 5, 1TB, RAM: 8 GB, ASUS - Gigabyte GAMING - A320M PRO-VH PLUS');
+INSERT INTO `PRODUCTO` VALUES (null,902588447,'Pc Ryzen5 5600 Modelo 2022 Combos Completos Full Apoveche',2760,65,'AMD RYZEN 5 - 5600 3.6 Ghz - Placa : ASUS - Gigabyte GAMING - A320M PRO-VH PLUS - RAM 8GB, Disco 1 TB, kit Teclado y Mouse Gamer Luces Digital USB');
+INSERT INTO `PRODUCTO` VALUES (null,958472011,'Computadora A10 Gamer Version Nueva Completas Verano Full',1780,12,'MONITOR 20 Pulgadas, PLACA Gaming MSI - Video, PROCESADOR VEGA Athlon  3.4 Ghz, Ram 8Gb, MOUSE Optico, Teclado Digital ');
+INSERT INTO `PRODUCTO` VALUES (null,659825649,'Combo Audifonos Con Microfono + Mochila Regalo Black Sheep',69,98,'Black Sheep, Inalambrico, luz led');
+INSERT INTO `PRODUCTO` VALUES (null,940125130,'Combo Parlante Bluetooth Extra Bass + Audifonos Bluetooth',340,100,'Tronsmart, Bluetooth, luz led, portátil, 24H');
+INSERT INTO `PRODUCTO` VALUES (null,659822604,'Audífonos Deportivos Bluetooth Combo Music P 47',69,60,'ST3, Bluetooth, luz led, portátil, 24H');
+INSERT INTO `PRODUCTO` VALUES (null,858520159,'Combo Bluetooth Jbl Tune 120 Tws Stereo + Jbl Tune 110',319,50,'JBL, Asistentes Siri,Google Assistant - 4H - 20 Hz - 20 kHz');
+INSERT INTO `PRODUCTO` VALUES (null,926154874,'Combo Galaxy Z FOLD 3 256GB Negro + Watch4 44mm Verde',1799,20,'camara: 10 MP - pantalla: 7.6 pulgadas - Galaxy Z Fold 3 5G');
+INSERT INTO `PRODUCTO` VALUES (null,625885256,'Combo Galaxy S22 Ultra 128GB Negro + Reloj Watch 4 Negro',2999,10,'pantalla: 6.8 pulgadas - cámara: 40MP - Galaxy S22 Ultra 5G');
+INSERT INTO `PRODUCTO` VALUES (null,326598741,'Combo Galaxy S22 Plus 128GB Negro + Reloj Watch 4 Negro',1999,25,'pantalla: 6.6 pulgadas - cámara: 10MP - Galaxy S22+ 5G');
+INSERT INTO `PRODUCTO` VALUES (null,363264908,'Tablet S8 128 WiFi Pink Gold',8990,31,'Tablet Samsung - procesador Snapdragon® 8 Gen 1 Mobile Platform - Ram 8Gb - 1TB - pantalla 11 pulgadas');
+
+
+
+
+
+DROP TABLE IF EXISTS `DISTRITO`;
+CREATE TABLE DISTRITO(
+ID_DISTRITO CHAR(3) NOT NULL,
+NOM_DISTRITO varchar(25) NOT NULL,
+PRIMARY KEY (NOM_DISTRITO)
+);
+insert into DISTRITO values ('A01','Lima');
+insert into DISTRITO values ('B21','Los Olivos');
+insert into DISTRITO values ('G91','Callao');
+insert into DISTRITO values ('F08','Ventanilla');
+insert into DISTRITO values ('G54','Ancon');
+insert into DISTRITO values ('K31','Chorrillos');
+insert into DISTRITO values ('D81','Madgalena');
+insert into DISTRITO values ('U99','San Luis');
+insert into DISTRITO values ('Y34','Miraflores');
+insert into DISTRITO values ('T08','Las Victoria');
+insert into DISTRITO values ('T37','Ate');
+insert into DISTRITO values ('R35','Barranco');
+insert into DISTRITO values ('R96','Breña');
+insert into DISTRITO values ('L40','Comas');
+insert into DISTRITO values ('G37','El Agustino');
+insert into DISTRITO values ('A12','Independencia');
+insert into DISTRITO values ('G64','La Molina');
+insert into DISTRITO values ('I61','Lince');
+insert into DISTRITO values ('P07','Lurigancho');
+insert into DISTRITO values ('Q30','San Isidro');
+
+
+
+
+
+DROP TABLE IF EXISTS `EMPLEADO`;
+CREATE TABLE EMPLEADO(
+NUM_ORDER INT auto_increment not null,
+ID_EMP INT(5) NOT NULL,
+NOM_EMP VARCHAR(50) NOT NULL,
+APE_EMP VARCHAR(50) NOT NULL,
+DNI_EMP INT(8) NOT NULL UNIQUE,
+EDAD_EMP INT NOT NULL,
+DISTRITO_EMP VARCHAR(25) NOT NULL,
+PRIMARY KEY (NUM_ORDER),
+FOREIGN KEY (DISTRITO_EMP) REFERENCES DISTRITO(NOM_DISTRITO)
+);
+
+INSERT INTO EMPLEADO VALUES(null,20711,'Jean Carlos','Ceballos',93481500,35,'Lima');
+INSERT INTO EMPLEADO VALUES(null,31789,'Marcos Manuel','Rojas',31644512,30,'Independencia');
+INSERT INTO EMPLEADO VALUES(null,13127,'Martin Joel','Perez',64872112,29,'Independencia');
+INSERT INTO EMPLEADO VALUES(null,57231,'Jose Carlos','Galio',63256271,31,'Lince');
+INSERT INTO EMPLEADO VALUES(null,56785 ,'Moises Lucas','Orosco',87542105,24,'Callao');
+INSERT INTO EMPLEADO VALUES(null,50749,'Veronica Maria','Montorrolla',64511420,40,'Independencia');
+INSERT INTO EMPLEADO VALUES(null,79057,'Luz Flor','Paredes',45145874,34,'Callao');
+INSERT INTO EMPLEADO VALUES(null,68827,'Carla Castro','Gonsalez',32652239,30,'Lima');
+INSERT INTO EMPLEADO VALUES(null,25100,'Ruben Mateo','Torres',95214754,30,'Callao');
+INSERT INTO EMPLEADO VALUES(null,85471,'Ariana Jimena','Vela',84521384,25,'Lince');
+INSERT INTO EMPLEADO VALUES(null,15501,'Rita xiomara','Lagos',65984210,34,'Lima');
+
+
+
+DROP TABLE IF EXISTS `MENU`;
+CREATE TABLE `MENU` (
+  `COD_MEN` int NOT NULL AUTO_INCREMENT,
+  `DES_MEN` varchar(30) DEFAULT NULL,
+  `URL_MEN` varchar(400) DEFAULT NULL,
+  PRIMARY KEY (`COD_MEN`)
+); 
+INSERT INTO `MENU` VALUES (1,'Pedidos','ServletPedido?tipo=LISTARPEDIDO');
+INSERT INTO `MENU` VALUES (2,'Productos','ServletProducto?tipo=LISTARPRODUCTO');
+INSERT INTO `MENU` VALUES (3,'Empleados','ServletEmpleado?tipo=LISTAREMPLEADOS');
+
+
+
+DROP TABLE IF EXISTS `ACCESO`;
+CREATE TABLE `ACCESO` (
+  `COD_MEN` int NOT NULL,
+  `ID_USUARIO` int NOT NULL,
+  PRIMARY KEY (`COD_MEN`,`ID_USUARIO`),
+  KEY `ID_USUARIO` (`ID_USUARIO`),
+  CONSTRAINT `tb_acceso_ibfk_1` FOREIGN KEY (`COD_MEN`) REFERENCES `MENU` (`COD_MEN`),
+  CONSTRAINT `tb_acceso_ibfk_2` FOREIGN KEY (`ID_USUARIO`) REFERENCES `USUARIO` (`ID_USUARIO`)
+);
+
+INSERT INTO `ACCESO` VALUES (1,1),
+(2,1), 
+(3,1);
+
+
+
+
+DROP TABLE IF EXISTS `PEDIDO`;
+CREATE TABLE PEDIDO(
+NUM_PEDIDO INT AUTO_INCREMENT NOT NULL,
+ID_PRODUCTO int(9) not null unique,
+NOM_CLI VARCHAR(50) NOT NULL,
+DNI_CLI INT(8) NOT NULL UNIQUE,
+CANT_PRODUCTO INT NOT NULL,
+PRIMARY KEY (NUM_PEDIDO),
+FOREIGN KEY (ID_PRODUCTO) REFERENCES PRODUCTO(ID_PRODUCTO)
+);
+insert into `PEDIDO` values(NULL,910198778,'Peixoto',75242959,3);
+insert into `PEDIDO` values(NULL,318968346,'Ricardo',87552378,4);
+insert into `PEDIDO` values(NULL,121088114,'Martin',34568789,1);
+
+
+
